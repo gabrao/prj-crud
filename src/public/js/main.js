@@ -1,1 +1,1 @@
-alert('Por enquanto não precisa se lascar quebrando a cabeça')
+//alert('Por enquanto não precisa se lascar quebrando a cabeça')

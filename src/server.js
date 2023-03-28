@@ -1,7 +1,17 @@
 const express = require('express')
 const path = require('path')
 
+const db = require('./database')
+const routes = require('./routes')
+
+
 const app = express()
+
+
+
+// Conection with DataBase
+db.conect()
+
 
 // Defining tamplate engine
 app.set('view engine', 'ejs')
@@ -13,12 +23,8 @@ app.use(express.static(path.join(__dirname, 'public')))
 // Set server to receive data by post (froms)
 app.use(express.urlencoded({ extended: true }))
 
-// Routes
-app.get('/', (req, res) => {
-    res.render('index', {
-        title: 'Home'
-    })
-})
+// Defining the routes
+app.use('/', routes)
 
 // On error 404 (page not found)
 app.use((req, res) => {
